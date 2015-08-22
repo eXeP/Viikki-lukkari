@@ -1,7 +1,7 @@
-# Viikin-lukkari
+# Viikin lukkari
 Lukkari viikkiläisille
 
-This software is provided under 
+# License 
 The MIT License (MIT)
 
 Copyright (c) 2015 Pietari Kaskela
