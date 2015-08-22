@@ -92,8 +92,17 @@ public class Lukkari {
 			throw e;
 		}
 		kurssit.remove("fin");
+        HashSet<String> aidotKurssit = new HashSet<String>();
+        for(String kurssi: kurssit){
+            int i = kurssi.length()-1;
+            for(; i >= 0; i--){
+                if(kurssi.charAt(i) == ' ')
+                    break;
+            }
+            aidotKurssit.add(kurssi.substring(0, i));
+        }
 
-		KurssiList = new ArrayList<String>(kurssit);
+		KurssiList = new ArrayList<String>(aidotKurssit);
 		Collections.sort(KurssiList);
 		
 	}
@@ -116,6 +125,14 @@ public class Lukkari {
         return tunnit;
     }
 
+    public static ArrayList<String> getKurssitByName(String lukkariname, Context con){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
+        ArrayList<String> kurssit = new ArrayList<String>();
+        for(int i = 0; i < sp.getInt(lukkariname+"kurssiSize_785408*", 0); i++)
+            kurssit.add(sp.getString(lukkariname+"kurssi$$%%_"+i, null));
+        return kurssit;
+    }
+
 	public static ArrayList<String> getLukkarinames(Context con){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
 
@@ -133,7 +150,9 @@ public class Lukkari {
 	public static void removeLukkari(String lukkariname, Context con){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
         SharedPreferences.Editor editor = sp.edit();
-
+        for(int i = 0; i < sp.getInt(lukkariname+"kurssiSize_785408*", 0); i++)
+            editor.remove(lukkariname+"kurssi$$%%_"+i);
+        editor.remove(lukkariname+"kurssiSize_785408*");
         for(int i = 0; i < 24; i++)
             editor.remove(lukkariname+i);
 
@@ -149,15 +168,18 @@ public class Lukkari {
         editor.commit();
 	}
 
-	public static void addLukkari(String lukkariname, ArrayList<String> tunnit, Context con)
+	public static void addLukkari(String lukkariname, ArrayList<String> tunnit, ArrayList<String> kurssit, Context con)
 	{
 	    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
 	    SharedPreferences.Editor editor = sp.edit();
         removeLukkari(lukkariname, con);
 
         editor.putInt("_lukkariN", sp.getInt("_lukkariN", 0) + 1);
+        editor.putInt(lukkariname + "kurssiSize_785408*", kurssit.size());
         editor.putString("_lukkariList" + sp.getInt("_lukkariN", 0), lukkariname);
-
+        for(int i = 0; i < kurssit.size(); i++){
+            editor.putString(lukkariname+"kurssi$$%%_"+i, kurssit.get(i));
+        }
         for(int i = 0; i < 24; i++)
             editor.putString(lukkariname+"__%%$$##1337" +i, tunnit.get(i));
 

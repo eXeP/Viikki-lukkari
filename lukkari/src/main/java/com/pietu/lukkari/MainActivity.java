@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
 		        	uusiLukkari.add(pos, value);
 
 		        	Lukkari.removeLukkari(lukkariname, MainActivity.this);
-		        	Lukkari.addLukkari(lukkariname, uusiLukkari, MainActivity.this);
+		        	Lukkari.addLukkari(lukkariname, uusiLukkari, Lukkari.getKurssitByName(lukkariname, getApplicationContext()), MainActivity.this);
 		        	
 		        	muodostaLukkariGrid();
 		          }

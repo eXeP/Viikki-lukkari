@@ -93,7 +93,7 @@ public class StartActivity extends Activity {
             boolean stop = false;
             for(String tunti: tunnitJaAjat.valueAt(i)){
                 for(String kurssi: valitutKurssit){
-                    if(tunti.equals(kurssi)) {
+                    if(tunti.contains(kurssi)) {
                         tunnit.add(tunti);
                         stop = true;
                         break;
@@ -112,7 +112,7 @@ public class StartActivity extends Activity {
             return;
         }
         Lukkari.setLastLukkari(lukkariname, getApplicationContext());
-        Lukkari.addLukkari(lukkariname, tunnit, getApplication());
+        Lukkari.addLukkari(lukkariname, tunnit, valitutKurssit, getApplication());
         Intent mainIntent = new Intent(this, MainActivity.class);
         mainIntent.putExtra("lukkariname", lukkariname);
         startActivity(mainIntent);
