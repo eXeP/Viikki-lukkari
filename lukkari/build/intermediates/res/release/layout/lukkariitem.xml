@@ -1,0 +1,9 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:textSize="14sp"
+    android:gravity="center"
+    android:background="@drawable/back"
+
+    /><!-- From: file:/media/W/code/Android/Lukkari/lukkari/src/main/res/layout/lukkariitem.xml -->

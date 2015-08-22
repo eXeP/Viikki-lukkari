@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="Vuosiluokat">
+        <item>Ykköset</item>
+        <item>Kakkoset</item>
+        <item>Abit</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_done"
+        android:showAsAction="always"
+        android:onClick="valmis"
+        android:title="Valmis"/>
+
+</menu>
+<!-- From: file:/media/W/code/Android/Lukkari/lukkari/src/main/res/menu/start.xml -->
