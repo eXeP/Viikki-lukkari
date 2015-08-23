@@ -36,6 +36,9 @@ public class StartActivity extends Activity {
     ArrayList<String> kurssit;
     Lukkari lukkari = null;
     EditText nameText;
+
+    int lastVuosi = -1, lastJakso = -1;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -112,13 +115,13 @@ public class StartActivity extends Activity {
             return;
         }
         Lukkari.setLastLukkari(lukkariname, getApplicationContext());
-        Lukkari.addLukkari(lukkariname, tunnit, valitutKurssit, getApplication());
+        Lukkari.addLukkari(lukkariname, lastVuosi, lastJakso, tunnit, valitutKurssit, getApplication());
         Intent mainIntent = new Intent(this, MainActivity.class);
         mainIntent.putExtra("lukkariname", lukkariname);
         startActivity(mainIntent);
         finish();
     }
-    int lastVuosi = -1, lastJakso = -1;
+
     private void paivitaKurssit(){
         int vuosi = vuosiSpinner.getSelectedItemPosition()+1;
         int jakso = jaksoSpinner.getSelectedItemPosition()+1;

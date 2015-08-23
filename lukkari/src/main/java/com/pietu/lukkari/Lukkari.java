@@ -39,7 +39,9 @@ public class Lukkari {
 
 	ArrayList<Integer> selectedItems = new ArrayList<Integer>();
 	ArrayList<String> KurssiList;
-	
+
+    private static String padding = "%&^$%(#**(((!@(#*()*@#()!&)(&@#*)!^(#^&!@(&#";
+
 	public Lukkari(int vuosi, int jakso, Activity m) throws Exception{
 		
 		String filename = null;
@@ -125,7 +127,7 @@ public class Lukkari {
         return tunnit;
     }
 
-    public static ArrayList<String> getKurssitByName(String lukkariname, Context con){
+    public static ArrayList<String> getValitutKurssitByName(String lukkariname, Context con){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
         ArrayList<String> kurssit = new ArrayList<String>();
         for(int i = 0; i < sp.getInt(lukkariname+"kurssiSize_785408*", 0); i++)
@@ -158,7 +160,8 @@ public class Lukkari {
 
         ArrayList<String> newLukkarinames = getLukkarinames(con);
         newLukkarinames.remove(lukkariname);
-
+        editor.remove(lukkariname+"_vuosi%^^&");
+        editor.remove(lukkariname+"_jakso%^^&");
         editor.putInt("_lukkariN", newLukkarinames.size());
         editor.remove("_lukkariList" + newLukkarinames.size());
         for(int i = 0; i < newLukkarinames.size(); i++)
@@ -168,11 +171,14 @@ public class Lukkari {
         editor.commit();
 	}
 
-	public static void addLukkari(String lukkariname, ArrayList<String> tunnit, ArrayList<String> kurssit, Context con)
+	public static void addLukkari(String lukkariname, int vuosi, int jakso, ArrayList<String> tunnit, ArrayList<String> kurssit, Context con)
 	{
 	    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
 	    SharedPreferences.Editor editor = sp.edit();
         removeLukkari(lukkariname, con);
+
+        editor.putInt(lukkariname + "_vuosi%^^&", vuosi);
+        editor.putInt(lukkariname + "_jakso%^^&", jakso);
 
         editor.putInt("_lukkariN", sp.getInt("_lukkariN", 0) + 1);
         editor.putInt(lukkariname + "kurssiSize_785408*", kurssit.size());
@@ -185,6 +191,16 @@ public class Lukkari {
 
 	    editor.commit();
 	}
+
+    public static int getVuosiByName(String lukkariname, Context con){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
+        return sp.getInt(lukkariname+"_vuosi%^^&", 0);
+    }
+
+    public static int getJaksoByName(String lukkariname, Context con){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
+        return sp.getInt(lukkariname+"_jakso%^^&", 0);
+    }
 
     public static void setLastLukkari(String lukkariname, Context con)
     {
@@ -199,6 +215,8 @@ public class Lukkari {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(con);
         return sp.getString("_lastLukkariebineslol", null);
     }
+
+
 
 }
 
