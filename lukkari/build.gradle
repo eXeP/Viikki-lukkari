@@ -1,13 +1,13 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 17
+    compileSdkVersion 14
     buildToolsVersion "20.0.0"
 
     defaultConfig {
         applicationId "com.pietu.lukkari"
-        minSdkVersion 17
-        targetSdkVersion 17
+        minSdkVersion 14
+        targetSdkVersion 14
     }
 
     buildTypes {
