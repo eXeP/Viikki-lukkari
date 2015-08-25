@@ -76,7 +76,7 @@ public class StartActivity extends Activity {
 	}
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-    	if(item.getTitle().equals("valmis"))
+    	if(item.getTitle().equals("Valmis"))
     		valmis();
     		
     	return true;
