@@ -74,7 +74,14 @@ public class StartActivity extends Activity {
             }
         });
 	}
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+    	if(item.getTitle().equals("valmis"))
+    		valmis();
+    		
+    	return true;
+    	
+    }
     public void valmis(MenuItem item){
         SparseBooleanArray checkeditems = kurssiListView.getCheckedItemPositions();
         ArrayList<String> valitutKurssit = new ArrayList<String>();
