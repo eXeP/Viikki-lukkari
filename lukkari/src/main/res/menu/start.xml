@@ -3,7 +3,6 @@
     <item
         android:id="@+id/action_done"
         android:showAsAction="always"
-        android:onClick="valmis"
         android:title="Valmis"/>
 
 </menu>
