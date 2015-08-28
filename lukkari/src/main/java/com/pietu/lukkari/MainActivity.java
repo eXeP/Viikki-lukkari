@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
                 input.setText(t.getText());
 		        alertDialog.setView(input);
 
-		        alertDialog.setPositiveButton("valmis", new DialogInterface.OnClickListener() {
+		        alertDialog.setPositiveButton("Valmis", new DialogInterface.OnClickListener() {
 		        public void onClick(DialogInterface dialog, int whichButton) {
 		        	String value = input.getText().toString();
 		        	ArrayList<String> uusiLukkari = Lukkari.getTunnitByName(lukkariname, MainActivity.this);
@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
 		          }
 		        });
 
-		        alertDialog.setNegativeButton("peruuta", new DialogInterface.OnClickListener() {
+		        alertDialog.setNegativeButton("Peruuta", new DialogInterface.OnClickListener() {
 		          public void onClick(DialogInterface dialog, int whichButton) {
 		            // Canceled.
 		          }
@@ -164,6 +164,7 @@ public class MainActivity extends Activity {
                         alertDialog.setPositiveButton("Kyllä", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Lukkari.removeLukkari(valittu, getApplicationContext());
+                                lukkarigrid.setAdapter(null);
                             }
                         });
 

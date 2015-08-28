@@ -21,5 +21,5 @@
                  android:textAppearance="?android:attr/textAppearanceListItemSmall"
                  android:gravity="center_vertical"
                  android:checkMark="?android:attr/listChoiceIndicatorMultiple"
-                 android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-                 android:paddingEnd="?android:attr/listPreferredItemPaddingEnd" /><!-- From: file:/media/W/code/Android/Lukkari/lukkari/src/main/res/layout/checkedlistitem.xml -->
+
+                  /><!-- From: file:/media/W/code/Android/Lukkari/lukkari/src/main/res/layout/checkedlistitem.xml -->
