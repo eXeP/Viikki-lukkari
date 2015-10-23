@@ -1,5 +1,6 @@
 # Viikin lukkari
 Lukkari viikkiläisille
+https://play.google.com/store/apps/details?id=com.pietu.lukkari
 
 # License 
 The MIT License (MIT)
