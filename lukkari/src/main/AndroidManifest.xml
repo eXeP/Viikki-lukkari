@@ -13,7 +13,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <service android:name="com.pietu.lukkari.LukkariNotificationService" />
+
 
         <activity
             android:name="com.pietu.lukkari.MainActivity"
