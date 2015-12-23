@@ -1,4 +1,4 @@
-# Viikin lukkari
+# Viikki lukkari
 Lukkari viikkiläisille
 https://play.google.com/store/apps/details?id=com.pietu.lukkari
 
