@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_remove"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Poista"/>
+    <item
+        android:id="@+id/action_new"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="Uusi"/>
+    <item
+        android:id="@+id/action_change"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_more"
+        android:title="Vaihda"/>
+</menu>
